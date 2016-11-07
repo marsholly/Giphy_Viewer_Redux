@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchGiphy } from '../actions/GiphyActions';
+import ViewGiphys from './ViewGiphys';
 
 @connect(
   state => {
@@ -31,8 +32,7 @@ export default class SearchPage extends Component {
   }
 
   render() {
-    let { giphys } = this.props;
-    console.log('giphys:', giphys);
+    // let {giphys} = this.props
     return (
       <div className="container">
         <div className="text-center">
@@ -48,23 +48,10 @@ export default class SearchPage extends Component {
           />
         </div>
         <button className="btn btn-default" onClick={this.searchGiphy}>Search</button>
+        <div className="row">
+          <ViewGiphys giphys={this.props.giphys}/>
+        </div>
       </div>
     )
   }
 };
-
-// function mapStateToProps(state) {
-//   return{
-//     todos: state.todos
-//   }
-// }
-//
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     x(data) {
-//       dispatch(createTodo(data));
-//     },
-//   }
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
