@@ -10,15 +10,14 @@ export default class ViewGiphys extends Component {
 
   render() {
     let { giphys } = this.props;
-    //show the gif's slug, rating, and source, image.
     let giphyBlock;
     if (giphys) {
       giphyBlock = giphys.map(giphy => {
         let {id, slug, rating, source, images} = giphy;
         let {fixed_width} = images;
         return (
-          <div className="col-sm-6 col-md-4 ">
-            <div className="thumbnail card" key={id}>
+          <div className="col-sm-6 col-md-4" key={id}>
+            <div className="thumbnail card">
               <img src={fixed_width.url} />
               <div className="caption">
                 <p>slug: {slug}</p>

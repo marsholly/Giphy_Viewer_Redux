@@ -6,8 +6,5 @@ let middlewares = [promise];
 
 const store = createStore(reducers, applyMiddleware(...middlewares));
 
-// store.subscribe(() => {
-//   saveState(store.get.getState());
-// });
 
 export default store;
