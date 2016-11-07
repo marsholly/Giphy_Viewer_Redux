@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { searchGiphy } from '../actions/GiphyActions';
+import { detailView } from '../actions/GiphyActions';
+import {browserHistory} from 'react-router';
 
-
+@connect(
+  state => {
+    return {
+      giphys: state.giphys,
+    }
+  },
+  dispatch => {
+    return {
+      detailView(id) {
+        dispatch(detailView(id))
+      },
+    }
+  }
+)
 export default class ViewGiphys extends Component {
   constructor() {
     super();
+  }
+
+  detailView = (id) => {
+    this.props.detailView(id);
+    browserHistory.push('/detailView');
   }
 
   render() {
@@ -18,7 +37,7 @@ export default class ViewGiphys extends Component {
         return (
           <div className="col-sm-6 col-md-4" key={id}>
             <div className="thumbnail card">
-              <img src={fixed_width.url} />
+              <img src={fixed_width.url} onClick={() => this.detailView(id)}/>
               <div className="caption">
                 <p>slug: {slug}</p>
                 <p>rating: {rating}</p>

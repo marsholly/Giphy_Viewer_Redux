@@ -8,7 +8,7 @@ export default class Layout extends Component {
       <div>
         <ol className="breadcrumb">
           <li><Link to="/">Search</Link></li>
-          {/* <li><Link to="/filter">Filter</Link></li> */}
+          
         </ol>
         {this.props.children}
       </div>
