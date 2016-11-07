@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import todos from './todos';
+import giphys from './giphys';
 
-export default combineReducers({ todos });
+export default combineReducers({ giphys });

@@ -5,15 +5,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Layout from './components/Layout';
-import HomePage from './components/HomePage';
+import SearchPage from './components/SearchPage';
+import FilterPage from './components/FilterPage';
 
 
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Layout}>
-        <IndexRoute component={HomePage} />
-
+        <IndexRoute component={SearchPage} />
+        <Route path="filter" component={FilterPage} />
       </Route>
     </Router>
   </Provider>,

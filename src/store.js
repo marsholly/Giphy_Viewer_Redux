@@ -1,6 +1,13 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
+import promise from 'redux-promise';
 
-const store = createStore(reducers);
+let middlewares = [promise];
+
+const store = createStore(reducers, applyMiddleware(...middlewares));
+
+// store.subscribe(() => {
+//   saveState(store.get.getState());
+// });
 
 export default store;
